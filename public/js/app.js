@@ -3707,6 +3707,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   route: false
 });
@@ -83779,50 +83784,61 @@ var staticRenderFns = [
       "div",
       { staticClass: "text-center mt-4 text-gray-500 text-xs" },
       [
-        _c(
-          "a",
-          {
-            staticClass: "no-underline hover:underline text-blue-dark text-xs",
-            attrs: { href: "" }
-          },
-          [_vm._v("\n        微信登录 ")]
-        ),
-        _vm._v("•\n    "),
-        _c(
-          "a",
-          {
-            staticClass: "no-underline hover:underline text-blue-dark text-xs",
-            attrs: { href: "/register" }
-          },
-          [_vm._v("\n        注册 ")]
-        ),
-        _vm._v("•\n    "),
-        _c(
-          "a",
-          {
-            staticClass: "no-underline hover:underline text-blue-dark text-xs",
-            attrs: { href: "/login" }
-          },
-          [_vm._v("\n        登录 ")]
-        ),
-        _vm._v("•\n    "),
-        _c(
-          "a",
-          {
-            staticClass: "no-underline hover:underline text-blue-dark text-xs",
-            attrs: { href: "" }
-          },
-          [_vm._v("\n        找回密码 ")]
-        ),
-        _vm._v("•\n    "),
-        _c(
-          "a",
-          {
-            staticClass: "no-underline hover:underline text-blue-dark text-xs",
-            attrs: { href: "" }
-          },
-          [_vm._v("\n        网站首页\n    ")]
-        )
+        _c("div", [
+          _c(
+            "a",
+            {
+              staticClass:
+                "no-underline hover:underline text-blue-dark text-xs",
+              attrs: { href: "" }
+            },
+            [_vm._v("\n            微信登录 ")]
+          ),
+          _vm._v("•\n        "),
+          _c(
+            "a",
+            {
+              staticClass:
+                "no-underline hover:underline text-blue-dark text-xs",
+              attrs: { href: "/register" }
+            },
+            [_vm._v("\n            注册 ")]
+          ),
+          _vm._v("•\n        "),
+          _c(
+            "a",
+            {
+              staticClass:
+                "no-underline hover:underline text-blue-dark text-xs",
+              attrs: { href: "/login" }
+            },
+            [_vm._v("\n            登录 ")]
+          ),
+          _vm._v("•\n        "),
+          _c(
+            "a",
+            {
+              staticClass:
+                "no-underline hover:underline text-blue-dark text-xs",
+              attrs: { href: "" }
+            },
+            [_vm._v("\n            找回密码 ")]
+          ),
+          _vm._v("•\n        "),
+          _c(
+            "a",
+            {
+              staticClass:
+                "no-underline hover:underline text-blue-dark text-xs",
+              attrs: { href: "" }
+            },
+            [_vm._v("\n            网站首页\n        ")]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "mt-3" }, [
+          _vm._v("\n        by best worker\n    ")
+        ])
       ]
     )
   }
@@ -84125,7 +84141,7 @@ var render = function() {
                     _c(
                       "h1",
                       { staticClass: "text-4xl text-center font-thin" },
-                      [_vm._v("登录")]
+                      [_vm._v("注册")]
                     ),
                     _vm._v(" "),
                     _c(

@@ -1,5 +1,6 @@
 <template>
-    <div class="text-center mt-4 text-gray-500 text-xs">
+<div class="text-center mt-4 text-gray-500 text-xs">
+    <div>
         <a class="no-underline hover:underline text-blue-dark text-xs" href="">
             微信登录 </a
         >•
@@ -22,6 +23,10 @@
             网站首页
         </a>
     </div>
+    <div class="mt-3">
+        by best worker
+    </div>
+</div>
 </template>
 
 <script>
