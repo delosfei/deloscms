@@ -1,0 +1,14 @@
+{
+    "name": "delosfei/generator",
+    "description": "Extend Laravel's generators scaffold.",
+    "type": "project",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "authors": [
+        {
+            "name": "delosfei",
+            "email": "9739723@qq.com"
+        }
+    ],
+    "require": {}
+}
