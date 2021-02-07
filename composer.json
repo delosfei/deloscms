@@ -10,5 +10,23 @@
             "email": "9739723@qq.com"
         }
     ],
-    "require": {}
+    "require": {
+        "php": ">=7.3.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.3.3",
+        "laravel/laravel": "8.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Delosfei\\Generator\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Delosfei\\Generator\\GeneratorsServiceProvider"
+            ]
+        }
+    }
 }
