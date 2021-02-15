@@ -20,7 +20,7 @@
 
                     <div class="flex flex-col w-full md:w-1/2 p-4">
                         <div class="flex flex-col flex-1 justify-center mb-8">
-                            <h1 class="text-4xl text-center font-thin">登录</h1>
+                            <h1 class="text-4xl text-center font-thin">注册</h1>
                             <div class="w-full mt-4">
                                 <form
                                     class="form-horizontal w-3/4 mx-auto"
