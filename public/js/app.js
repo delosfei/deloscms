@@ -83792,9 +83792,9 @@ var staticRenderFns = [
                 "no-underline hover:underline text-blue-dark text-xs",
               attrs: { href: "" }
             },
-            [_vm._v("\n            微信登录 ")]
+            [_vm._v("\r\n            微信登录 ")]
           ),
-          _vm._v("•\n        "),
+          _vm._v("•\r\n        "),
           _c(
             "a",
             {
@@ -83802,9 +83802,9 @@ var staticRenderFns = [
                 "no-underline hover:underline text-blue-dark text-xs",
               attrs: { href: "/register" }
             },
-            [_vm._v("\n            注册 ")]
+            [_vm._v("\r\n            注册 ")]
           ),
-          _vm._v("•\n        "),
+          _vm._v("•\r\n        "),
           _c(
             "a",
             {
@@ -83812,9 +83812,9 @@ var staticRenderFns = [
                 "no-underline hover:underline text-blue-dark text-xs",
               attrs: { href: "/login" }
             },
-            [_vm._v("\n            登录 ")]
+            [_vm._v("\r\n            登录 ")]
           ),
-          _vm._v("•\n        "),
+          _vm._v("•\r\n        "),
           _c(
             "a",
             {
@@ -83822,9 +83822,9 @@ var staticRenderFns = [
                 "no-underline hover:underline text-blue-dark text-xs",
               attrs: { href: "" }
             },
-            [_vm._v("\n            找回密码 ")]
+            [_vm._v("\r\n            找回密码 ")]
           ),
-          _vm._v("•\n        "),
+          _vm._v("•\r\n        "),
           _c(
             "a",
             {
@@ -83832,12 +83832,12 @@ var staticRenderFns = [
                 "no-underline hover:underline text-blue-dark text-xs",
               attrs: { href: "" }
             },
-            [_vm._v("\n            网站首页\n        ")]
+            [_vm._v("\r\n            网站首页\r\n        ")]
           )
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "mt-3" }, [
-          _vm._v("\n        by best worker\n    ")
+          _vm._v("\r\n        by best worker\r\n    ")
         ])
       ]
     )
