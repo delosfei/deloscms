@@ -9,3 +9,4 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::get('/captcha', [CaptchaController::class, 'create']);
 Route::get('user/info', [UserController::class, 'info']);
 Route::apiResource('user', \App\Api\UserController::class);
+Route::apiResource('site', \App\Api\SiteController::class);
