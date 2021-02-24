@@ -90,7 +90,7 @@
 <script>
 import HdFooter from "./Footer";
 export default {
-    route: { path: "/login", meta: { guest: true } },
+    route: {path: "/login",meta: { guest: true } },
     components: { HdFooter },
     data() {
         return {
@@ -108,8 +108,8 @@ export default {
                 .post(`login`, this.form)
                 .then(({ token }) => {
                     //本地缓存的TOKEN
-                    localStorage.setItem("token", token);
-                    location.href = "/";
+                     sessionStorage.setItem("token", token);
+                     location.href = "/admin";
                 })
                 .finally((_) => this.$refs.captcha.get());
         },

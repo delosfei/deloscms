@@ -3689,7 +3689,7 @@ __webpack_require__.r(__webpack_exports__);
   computed: {
     headers: function headers() {
       return {
-        Authorization: "Bearer ".concat(window.localStorage.getItem("token"))
+        Authorization: "Bearer ".concat(window.sessionStorage.getItem("token"))
       };
     }
   },
@@ -3963,8 +3963,8 @@ __webpack_require__.r(__webpack_exports__);
       this.axios.post("login", this.form).then(function (_ref) {
         var token = _ref.token;
         //本地缓存的TOKEN
-        localStorage.setItem("token", token);
-        location.href = "/";
+        sessionStorage.setItem("token", token);
+        location.href = "/admin";
       })["finally"](function (_) {
         return _this.$refs.captcha.get();
       });
@@ -4043,12 +4043,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   route: {
-    path: "/register"
+    path: "/register",
+    meta: {
+      guest: true
+    }
   },
   components: {
     HdFooter: _Footer__WEBPACK_IMPORTED_MODULE_0__.default
@@ -4308,8 +4309,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
-/* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./routes */ "./vue/router/routes.js");
-/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/store */ "./vue/store/index.js");
+/* harmony import */ var _router_routes__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../router/routes */ "./vue/router/routes.js");
+/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../store */ "./vue/store/index.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -4322,37 +4323,54 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 vue__WEBPACK_IMPORTED_MODULE_3__.default.use(vue_router__WEBPACK_IMPORTED_MODULE_4__.default);
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_4__.default({
-  routes: _routes__WEBPACK_IMPORTED_MODULE_1__.default,
-  mode: "history"
-}); // const isLogin = Boolean(localStorage.getItem("token"));
-// const isLogin = Boolean(window.user.id);
-//路由拦截（守卫）
-
+  routes: _router_routes__WEBPACK_IMPORTED_MODULE_1__.default,
+  mode: 'history'
+});
+var isLogin = _store__WEBPACK_IMPORTED_MODULE_2__.default.getters.token;
 router.beforeEach( /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(to, from, next) {
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            _store__WEBPACK_IMPORTED_MODULE_2__.default.commit("setErrors"); // if (isLogin) {
-            //     await Promise.all([
-            //         store.dispatch("getUserInfo"),
-            //         store.dispatch("getSystemConfig")
-            //     ]);
-            // }
-            // if (to.matched.some(route => route.meta.auth) && !isLogin) {
-            //     //需要验证但未登录
-            //     next("/login");
-            // } else if (to.matched.some(route => route.meta.guest) && isLogin) {
-            //     //该页面只能游客访问，但你已经登录了，就跳转到首页
-            //     location.href = "/";
-            // } else {
-            //     next();
-            // }
+            _store__WEBPACK_IMPORTED_MODULE_2__.default.commit('setErrors'); //用户经常被用到，所以登录用户在这里获取资料
 
-            next();
+            if (!_store__WEBPACK_IMPORTED_MODULE_2__.default.getters.token) {
+              _context.next = 4;
+              break;
+            }
 
-          case 2:
+            _context.next = 4;
+            return Promise.all([_store__WEBPACK_IMPORTED_MODULE_2__.default.dispatch('getUser')]);
+
+          case 4:
+            //匹配的路由列表中是否有需要验证的
+            if (to.matched.some(function (route) {
+              return route.meta.auth;
+            })) {
+              if (!isLogin) {
+                next({
+                  path: '/login',
+                  //登录成功后回跳地址
+                  redirect: to.fullPath
+                });
+              } else {
+                next();
+              }
+            } else if (to.matched.some(function (route) {
+              return route.meta.guest;
+            })) {
+              //页面只能为游客访问时
+              if (isLogin) {
+                location.href = '/';
+              } else {
+                next();
+              }
+            } else {
+              next();
+            }
+
+          case 5:
           case "end":
             return _context.stop();
         }
@@ -4454,10 +4472,10 @@ vue__WEBPACK_IMPORTED_MODULE_1__.default.use(vuex__WEBPACK_IMPORTED_MODULE_2__.d
       };
     },
     auth: function auth() {
-      return Boolean(localStorage.getItem("token"));
+      return Boolean(sessionStorage.getItem("token"));
     },
     token: function token() {
-      return window.localStorage.getItem("token");
+      return window.sessionStorage.getItem("token");
     }
   },
   //修改数据时使用，这是一个同步方法，不能在这里执行异步动作
@@ -4718,7 +4736,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     logout: function logout() {
-      window.localStorage.removeItem("token");
+      window.sessionStorage.removeItem("token");
       location.href = "/";
     }
   }
@@ -6526,7 +6544,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.avatar-uploader .el-upload {\r\n    border: 1px dashed #d9d9d9;\r\n    border-radius: 6px;\r\n    cursor: pointer;\r\n    position: relative;\r\n    overflow: hidden;\n}\n.avatar-uploader .el-upload:hover {\r\n    border-color: #409eff;\n}\n.avatar-uploader-icon {\r\n    font-size: 28px;\r\n    color: #8c939d;\r\n    width: 178px;\r\n    height: 178px;\r\n    line-height: 178px;\r\n    text-align: center;\n}\n.avatar {\r\n    width: auto;\r\n    height: 178px;\r\n    display: block;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.avatar-uploader .el-upload {\n    border: 1px dashed #d9d9d9;\n    border-radius: 6px;\n    cursor: pointer;\n    position: relative;\n    overflow: hidden;\n}\n.avatar-uploader .el-upload:hover {\n    border-color: #409eff;\n}\n.avatar-uploader-icon {\n    font-size: 28px;\n    color: #8c939d;\n    width: 178px;\n    height: 178px;\n    line-height: 178px;\n    text-align: center;\n}\n.avatar {\n    width: auto;\n    height: 178px;\n    display: block;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

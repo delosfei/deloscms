@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -24,8 +25,12 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
 	{
 		\App\Models\User::observe(\App\Observers\UserObserver::class);
-		\App\Models\User::observe(\App\Observers\UserObserver::class);
+
+
 
         //
+
+        JsonResource::withoutWrapping();
+        config(['sanctum.stateful' => array_merge(config('sanctum.stateful'), [request()->getHost()])]);
     }
 }

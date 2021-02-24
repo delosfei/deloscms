@@ -9,7 +9,7 @@ class CreateUsersTable extends Migration
 	public function up()
 	{
 		Schema::create('users', function(Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->string('name', 30)->nullable()->comment('昵称');
             $table->string('email', 50)->nullable()->unique()->comment('邮箱');
             $table->string('mobile', 20)->nullable()->unique()->comment('手机号');

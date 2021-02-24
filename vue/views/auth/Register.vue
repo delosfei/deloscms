@@ -49,8 +49,6 @@
                             </div>
                         </div>
                     </div>
-
-
                 </div>
             </div>
         </div>
@@ -60,7 +58,7 @@
 <script>
 import HdFooter from "./Footer";
 export default {
-    route: { path: "/register" },
+    route: {path: "/register",meta: { guest: true } },
     components: { HdFooter },
 };
 </script>

@@ -23,7 +23,7 @@ export default {
     computed: {
         headers() {
             return {
-                Authorization: `Bearer ${window.localStorage.getItem("token")}`
+                Authorization: `Bearer ${window.sessionStorage.getItem("token")}`
             };
         }
     },

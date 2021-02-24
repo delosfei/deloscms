@@ -15,10 +15,10 @@ export default new Vuex.Store({
     getters: {
         errors: state => name => state.errors[name] && state.errors[name][0],
         auth() {
-            return Boolean(localStorage.getItem("token"));
+            return Boolean(sessionStorage.getItem("token"));
         },
         token() {
-            return window.localStorage.getItem("token");
+            return window.sessionStorage.getItem("token");
         }
     },
     //修改数据时使用，这是一个同步方法，不能在这里执行异步动作
