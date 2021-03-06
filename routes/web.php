@@ -2,17 +2,17 @@
 
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+Route::get(
+    '/',
+    function () {
+        return '网站主页';
+    }
+);
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+//后备路由（没有可匹配路由时执行这里）
+Route::fallback(
+    function () {
+        return view('app');
+    }
+);
