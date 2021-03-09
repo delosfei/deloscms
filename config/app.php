@@ -138,6 +138,7 @@ return [
     */
 
     'providers' => [
+		\App\Services\Site\SiteServiceProvider::class,
 
         /*
          * Laravel Framework Service Providers...
@@ -195,6 +196,7 @@ return [
     */
 
     'aliases' => [
+		'SiteService' => \App\Services\Site\SiteFacade::class,
 
         //
         'App' => Illuminate\Support\Facades\App::class,
