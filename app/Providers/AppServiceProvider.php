@@ -31,7 +31,9 @@ class AppServiceProvider extends ServiceProvider
      * @return void
      */
     public function boot()
-    {
+	{
+		\App\Models\User::observe(\App\Observers\UserObserver::class);
+
         JsonResource::withoutWrapping();
         config(['sanctum.stateful' => array_merge(config('sanctum.stateful'), [request()->getHost()])]);
     }

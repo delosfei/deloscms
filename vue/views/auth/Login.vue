@@ -25,7 +25,7 @@
                                             size="normal"
                                             clearable
                                         ></el-input>
-                                        <hd-error name="mobile" />
+                                        <hd-error name="mobile"/>
                                     </div>
                                     <div class="flex flex-col mt-4">
                                         <el-input
@@ -35,7 +35,7 @@
                                             clearable
                                             show-password
                                         ></el-input>
-                                        <hd-error name="password" />
+                                        <hd-error name="password"/>
                                     </div>
 
                                     <div class="flex flex-col mt-4">
@@ -68,7 +68,7 @@
                                         </button>
                                     </div>
                                 </form>
-                                <hd-footer />
+                                <hd-footer/>
                             </div>
                         </div>
                     </div>
@@ -89,9 +89,10 @@
 
 <script>
 import HdFooter from "./Footer";
+
 export default {
-    route: {path: "/login",meta: { guest: true } },
-    components: { HdFooter },
+    route: {path: "/login", meta: {guest: true}},
+    components: {HdFooter},
     data() {
         return {
             form: {
@@ -106,10 +107,10 @@ export default {
         onSubmit() {
             this.axios
                 .post(`login`, this.form)
-                .then(({ token }) => {
+                .then(({token}) => {
                     //本地缓存的TOKEN
-                     localStorage.setItem("token", token);
-                     location.href = "/admin";
+                    localStorage.setItem("token", token);
+                    location.href = "/admin";
                 })
                 .finally((_) => this.$refs.captcha.get());
         },
