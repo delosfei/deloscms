@@ -6,7 +6,7 @@ use App\Models\Site;
 
 class SiteService
 {
-    public function getSiteByDomain()
+    public function getSiteByDomain(): ?site
     {
         $host = parse_url(request()->url())['host'];
 

@@ -10,6 +10,13 @@ Route::get(
     }
 );
 
+Route::get(
+    'login',
+    function () {
+        return view('app');
+    }
+)->middleware(['front']);
+
 
 //后备路由（没有可匹配路由时执行这里）
 Route::fallback(

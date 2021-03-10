@@ -49,8 +49,8 @@
                     class="card-footer text-muted bg-white flex flex-col md:flex-row justify-between"
                 >
                     <div class="text-sm text-gray-500">
-                        # {{ site.id }} 创建时间: {{ site.created_at }} 站长:
-                        <!-- {{ site.master.name }}  -->
+                        # {{ site.id }} 创建时间: {{ site.created_at | fromNow }} 站长:
+                        {{ site.master.name }}
                         所属组:
                         <router-link to="{ name: 'system.group.index' }">
                             <!-- {{ site.master.group.title }} -->
@@ -122,7 +122,7 @@ const menus = [
     // { title: "角色管理", name: `site.role.index`, icon: "fas fa-user-lock" }
 ];
 export default {
-    route: {path: "/admin"},
+    route: {path: "/site/site/index"},
     data() {
         return {
             sites: [],

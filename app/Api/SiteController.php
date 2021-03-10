@@ -16,6 +16,7 @@ class SiteController extends Controller
     public function __construct()
     {
         $this->middleware('auth:sanctum');
+        $this->authorizeResource(Site::class, 'site');
         //   $this->middleware(['site'])->only(['current']);
     }
 

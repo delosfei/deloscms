@@ -15,6 +15,12 @@
                 <i class="text-xl" :class="menu.icon"></i>
                 {{ menu.title }}
             </router-link>
+            <a href="#" @click.prevent="logout"
+               class="cursor-pointer opacity-60 hover:opacity-95 duration-300 flex flex-col justify-center items-center bg-white rounded-md border shadow-sm p-3"
+            >
+                <i class="text-xl fas fa-user-alt"></i>
+                退出登录
+            </a>
         </div>
     </div>
 </template>
@@ -23,7 +29,6 @@
 const menus = [
     {title: "站点管理", to: "/admin", icon: "fas fa-calendar-check"},
     {title: "系统设置", to: "", icon: "fas fa-cloud"},
-    {title: "退出登录", to: "", icon: "fas fa-user-alt"},
 ];
 export default {
     data() {

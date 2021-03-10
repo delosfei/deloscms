@@ -13,6 +13,7 @@ use Auth;
  * @property mixed domain
  * @property mixed permission
  * @property mixed master
+ * @property mixed created_at
  * @package App\Http\Resources
  */
 class SiteResource extends JsonResource
@@ -25,6 +26,7 @@ class SiteResource extends JsonResource
             'keyword' => $this->keyword,
             'domain' => $this->domain,
             'config' => $this->when($this->check(), $this->config),
+            'created_at' => $this->created_at,
             'permission' => $this->permission,
             'master' => $this->master,
         ];

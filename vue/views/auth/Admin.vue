@@ -61,7 +61,7 @@
 import HdFooter from './Footer'
 
 export default {
-    route: {path: '/admin'},
+    route: {path: '/admin', meta: {guest: true}},
     components: {HdFooter},
     created() {
         if (this.isLogin) {
@@ -84,7 +84,7 @@ export default {
                 .post(`login`, this.form)
                 .then(({token}) => {
                     //本地缓存的TOKEN
-                    // localStorage.setItem("token", token);
+                    localStorage.setItem("token", token);
                     location.href = '/site/site/index'
                 })
                 .finally(_ => this.$refs.captcha.get())

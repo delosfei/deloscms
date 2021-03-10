@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -39,7 +40,6 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
         'remember_token',
-        'mobile',
     ];
 
     protected $casts = [
@@ -73,13 +73,13 @@ class User extends Authenticatable
     /**
      * 用户创建的所有站点
      *
-     * @return void
+     * @return HasMany
      */
-//    public function sites()
-//    {
-//
-//    }
-//
+    public function sites()
+    {
+        return $this->hasMany(Site::class);
+    }
+
 //    public function group()
 //    {
 //

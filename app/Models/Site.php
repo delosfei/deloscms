@@ -40,4 +40,9 @@ class Site extends Model
             ];
         }
     }
+
+    public function master()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }
