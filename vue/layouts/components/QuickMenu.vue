@@ -28,7 +28,7 @@
 <script>
 const menus = [
     {title: "站点管理", to: "/admin", icon: "fas fa-calendar-check"},
-    {title: "系统设置", to: "", icon: "fas fa-cloud"},
+    {title: "系统设置", to: "/system/home", icon: "fas fa-cloud"},
 ];
 export default {
     data() {

@@ -8,6 +8,9 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
+/**
+ * @property mixed isSuperAdmin
+ */
 class User extends Authenticatable
 {
     use HasFactory, Notifiable, HasApiTokens;
@@ -55,7 +58,7 @@ class User extends Authenticatable
      * 超级管理员
      * @return void
      */
-    public function getIsSuperAdminAttribute()
+    public function getIsSuperAdminAttribute(): bool
     {
         return $this->id == 1;
     }
