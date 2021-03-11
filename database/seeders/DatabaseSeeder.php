@@ -18,7 +18,9 @@ class DatabaseSeeder extends Seeder
         $this->call(PackageSeeder::class);
         $this->call(SystemConfigSeeder::class);
 //		$this->call(AttachmentSeeder::class);
-        // \App\Models\User::factory(10)->create();
+        $this->call(GroupSeeder::class);
+		$this->call(GroupPackageSeeder::class);
+		// \App\Models\User::factory(10)->create();
 
 
     }

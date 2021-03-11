@@ -33,6 +33,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
 	{
 		\App\Models\User::observe(\App\Observers\UserObserver::class);
+		\App\Models\GroupPackage::observe(\App\Observers\GroupPackageObserver::class);
+		\App\Models\Group::observe(\App\Observers\GroupObserver::class);
 		\App\Models\Attachment::observe(\App\Observers\AttachmentObserver::class);
 		\App\Models\SystemConfig::observe(\App\Observers\SystemConfigObserver::class);
 		\App\Models\Package::observe(\App\Observers\PackageObserver::class);

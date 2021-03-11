@@ -17,4 +17,9 @@ class Package extends Model
 
         return ['delete' => Auth::check() && Auth::user()->can('delete', $this)];
     }
+
+    public function groups()
+    {
+        return $this->belongsToMany(Group::class, 'group_packages');
+    }
 }

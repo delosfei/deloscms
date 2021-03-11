@@ -77,8 +77,8 @@ const menus = [
         icon: "fas fa-basketball-ball"
     },
     {title: "模块管理", to: "", icon: "fab fa-bimobject"},
-    {title: "会员组", to: "", icon: "fas fa-calendar-check"},
-    {title: "系统设置", to: "", icon: "fas fa-camera-retro"}
+    {title: "会员组", to: "/system/group/index", icon: "fas fa-calendar-check"},
+    {title: "系统设置", to: "/system/home", icon: "fas fa-camera-retro"}
 ];
 export default {
     data() {
