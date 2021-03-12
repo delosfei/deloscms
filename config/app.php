@@ -138,6 +138,7 @@ return [
     */
 
     'providers' => [
+		\App\Services\Module\ModuleServiceProvider::class,
 		\App\Services\Upload\UploadServiceProvider::class,
 		\App\Services\Site\SiteServiceProvider::class,
 
@@ -197,6 +198,7 @@ return [
     */
 
     'aliases' => [
+		'ModuleService' => \App\Services\Module\ModuleFacade::class,
 		'UploadService' => \App\Services\Upload\UploadFacade::class,
 		'SiteService' => \App\Services\Site\SiteFacade::class,
 

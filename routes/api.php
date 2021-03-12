@@ -17,3 +17,4 @@ Route::post('upload/local', [\App\Api\UploadController::class, 'local']);
 Route::apiResource('system_config', \App\Api\SystemConfigController::class);
 Route::apiResource('group', \App\Api\GroupController::class);
 Route::apiResource('group_package', \App\Api\GroupPackageController::class);
+Route::apiResource('module', \App\Api\ModuleController::class)->scoped(['module' => 'name']);

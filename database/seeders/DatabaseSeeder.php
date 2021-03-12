@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
 //		$this->call(AttachmentSeeder::class);
         $this->call(GroupSeeder::class);
 		$this->call(GroupPackageSeeder::class);
+		$this->call(ModuleSeeder::class);
 		// \App\Models\User::factory(10)->create();
 
 
